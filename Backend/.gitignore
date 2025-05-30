@@ -1,0 +1,37 @@
+# Node modules
+/node_modules
+
+# Output directory
+/dist
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime files
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Editor folders
+.vscode
+.idea
+
+# Optional: coverage reports (if using testing tools like Jest)
+coverage/
+
+/src/generated/prisma
