@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import logger
  from "../../utils/logger.js";
-import { log } from "console";
+
 const prisma = new PrismaClient();
 
 async function Login(email: string, password: string){
@@ -17,6 +17,13 @@ async function Login(email: string, password: string){
         if(!user){
             logger.error("User not found:", email);
             throw new Error("User not found");  
+        }
+
+        const isValidPassword: boolean = await bcrypt.compare(password, user.password);
+
+        if(!isValidPassword){
+            logger.error("Invalid password for user:", email);
+            throw new Error("Invalid password");
         }
 
         return;

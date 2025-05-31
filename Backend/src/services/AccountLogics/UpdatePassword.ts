@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import logger from "../../utils/logger.js";
 import bcrypt from "bcryptjs";
-import { log } from "console";
+
 const prisma = new PrismaClient();
 
 async function UpdatePassword(userId: number, newPassword: string){
