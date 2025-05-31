@@ -33,3 +33,5 @@ async function UpdatePassword(userId: number, newPassword: string){
     }
 
 }
+
+export default UpdatePassword;
