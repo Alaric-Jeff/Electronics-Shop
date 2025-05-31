@@ -21,11 +21,13 @@ const SignUpController = async (req: any, res: any) => {
             success: true,
             message: "User signed up successfully"
         });
+
     } catch (err: any) {
         logger.error("Error in SignUpController:", err.message);
 
         const statusCode = err.message === "User already exists" ? 400 : 500;
         const errMessage = err.message === "User already exists" ? "User already exists" : "Internal server error";
+        
         return res.status(statusCode).json({
             success: false,
             error: errMessage
