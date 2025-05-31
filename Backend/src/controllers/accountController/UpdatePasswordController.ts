@@ -20,6 +20,7 @@ const UpdatePasswordController = async (req: any, res: any) => {
             success: true,
             message: "Password updated successfully"
         })
+        
     }catch(err: any){
         logger.error("Error in UpdatePasswordController:", err.message);
         return res.status(500).json({ error: "Internal Server Error" });
