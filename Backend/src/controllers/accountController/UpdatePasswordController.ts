@@ -1,7 +1,8 @@
 import UpdatePassword  from "../../services/AccountLogics/UpdatePassword.js";
 import logger from "../../utils/logger.js";
+import { Request, Response} from "express";
 
-const UpdatePasswordController = async (req: any, res: any) => {
+const UpdatePasswordController = async (req: Request, res: Response) => {
     const{userId} = req.params;
     const { newPassword } = req.body;
 
@@ -20,9 +21,11 @@ const UpdatePasswordController = async (req: any, res: any) => {
             success: true,
             message: "Password updated successfully"
         })
-        
+
     }catch(err: any){
         logger.error("Error in UpdatePasswordController:", err.message);
         return res.status(500).json({ error: "Internal Server Error" });
     }
 }
+
+export default UpdatePasswordController;

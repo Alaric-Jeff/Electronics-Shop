@@ -1,7 +1,8 @@
 import DeleteAccount from "../../services/AccountLogics/DeleteAccount.js";
 import logger from "../../utils/logger.js";
+import { Request, Response } from "express";
 
-const DeleteAccountController = async (req: any, res: any) => {
+const DeleteAccountController = async (req: Request, res: Response) => {
 
     const {userId } = req.params;
 

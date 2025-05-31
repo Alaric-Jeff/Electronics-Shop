@@ -1,7 +1,8 @@
 import SignUp from "../services/AccountLogics/SignUp.js";
 import logger from "../utils/logger.js";
+import { Request, Response } from "express";
 
-const SignUpController = async (req: any, res: any) => {
+const SignUpController = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
