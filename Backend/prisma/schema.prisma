@@ -37,13 +37,12 @@ model User {
 
 model UserProfile {
   profileId Int    @id @default(autoincrement())
-  user      User   @relation(fields: [userId], references: [userId])
+  user      User   @relation(fields: [userId], references: [userId]) 
   userId    Int    @unique
   address   String?
   mobileNumber Int?
   zipCode Int?
   province String? 
   region String? 
-  
 }
 
