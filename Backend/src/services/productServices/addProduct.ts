@@ -21,7 +21,7 @@ async function addProduct(productName: string, productDescription: string, produ
         }else{
             logger.error("Unknown error in addProduct:", String(err));
         }
-        return new Error("Internal server error");
+        return new Error("Error in adding product service");
     }
 }
 

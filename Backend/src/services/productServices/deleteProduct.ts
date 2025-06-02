@@ -18,7 +18,7 @@ async function deleteProducts(ids: number[]) {
     } else {
       logger.error("Unknown error in deleteProducts:", String(err));
     }
-    return new Error("Internal server error");
+    return new Error("Error in deleting products service");
   }
 }
 
