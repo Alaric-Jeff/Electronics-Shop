@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "E-Commerce Fullstack Web App",
   "version": "1.0.0",
   "main": "dist/app.js",
   "type": "module",
@@ -9,9 +9,13 @@
     "start": "node dist/app.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Jeffrey M. Aspiras",
+  "license": "MIT",
+  "description": "an E-Commerce Fullstack Web App built with TypeScript, Express, Prisma, and PostgreSQL",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Alaric-Jeff/Electronics-Shop.git"
+     },
   "dependencies": {
     "@prisma/client": "^6.8.2",
     "bcryptjs": "^3.0.2",
