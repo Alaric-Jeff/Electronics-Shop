@@ -1,4 +1,4 @@
-import UpdatePassword  from "../../services/AccountLogics/UpdatePassword.js";
+import UpdatePassword  from "../../services/accountServices/UpdatePassword.js";
 import logger from "../../utils/logger.js";
 import { Request, Response} from "express";
 

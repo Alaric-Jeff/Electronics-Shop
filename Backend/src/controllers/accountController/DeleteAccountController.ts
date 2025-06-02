@@ -1,4 +1,4 @@
-import DeleteAccount from "../../services/AccountLogics/DeleteAccount.js";
+import DeleteAccount from "../../services/accountServices/DeleteAccount.js";
 import logger from "../../utils/logger.js";
 import { Request, Response } from "express";
 

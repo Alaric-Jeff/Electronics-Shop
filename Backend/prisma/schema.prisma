@@ -15,15 +15,25 @@ datasource db {
 }
 
 enum Roles {
-  user = "user", 
-  admin = "admin"
+  user
+  admin
 }
 
 enum PaymentMethod {
-  COD = "COD",
-  PayPal = "PayPal",
-  Stripe = "Stripe"
+  cod
+  paypal
+  stripe
 }
+
+enum ProductCategories {
+  passiveComponents
+  activeComponents
+  electromechanicalComponents
+  sensorsAndTransducers
+  powerSources
+  displayAndOutputDevices
+}
+
 
 model User {
   userId     Int          @id @default(autoincrement())
@@ -45,4 +55,18 @@ model UserProfile {
   province String? 
   region String? 
 }
+
+model Product {
+  productId        Int                 @id @default(autoincrement())
+  productName      String              @unique
+  productCategory  ProductCategories
+  productDescription String           @default("N/A")
+  productStock     Int                @default(0)
+  productPrice     Float              @default(0.00)
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+}
+
+
+
 

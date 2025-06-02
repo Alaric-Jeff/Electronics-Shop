@@ -1,4 +1,4 @@
-import SignUp from "../services/AccountLogics/SignUp.js";
+import SignUp from "../services/accountServices/SignUp.js";
 import logger from "../utils/logger.js";
 import { Request, Response } from "express";
 
