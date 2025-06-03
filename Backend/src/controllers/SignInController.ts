@@ -6,7 +6,7 @@ const LoginController = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        logger.error("Missing credentials", { email });
+        logger.error("Missing cr    edentials", { email });
         return res.status(400).json({
             success: false,
             message: "Email and password are required",
