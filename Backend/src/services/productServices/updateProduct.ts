@@ -6,16 +6,13 @@ const prisma = new PrismaClient();
 
 async function updateProduct(updateForm: object, productId: number) {
   try {
-    const updatedProduct = await prisma.product.set({
+    await prisma.product.update({
       where: { productId },
       data: {
-       updateForm
+        ...updateForm
       }
     });
 
-    
-
-    return updatedProduct;
   } catch (err: unknown) {
     if (err instanceof Error) {
       logger.error("Error in updateProduct:", err.message);
@@ -25,3 +22,6 @@ async function updateProduct(updateForm: object, productId: number) {
     return new Error("Error in updating product service");
   }
 }
+
+
+export default updateProduct;
