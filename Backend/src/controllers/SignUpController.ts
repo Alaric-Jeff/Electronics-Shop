@@ -3,9 +3,9 @@ import logger from "../utils/logger.js";
 import { Request, Response } from "express";
 
 const SignUpController = async (req: Request, res: Response) => {
-    const { email, password } = req.body;
+    const { email, password, firstName, lastName, middleName } = req.body;
 
-    if (!email || !password) {
+    if (!email || !password || !firstName || !lastName) {
         logger.error("Email or password is missing");
 
         return res.status(400).json({
@@ -15,7 +15,7 @@ const SignUpController = async (req: Request, res: Response) => {
     }
 
     try {
-        await SignUp(email, password);
+        await SignUp(email, password, firstName, lastName, middleName);
 
         logger.info("User signed up successfully:", email);
         return res.status(200).json({

@@ -54,6 +54,7 @@ model UserProfile {
   zipCode Int?
   province String? 
   region String? 
+  userImage String? 
 }
 
 model Product {

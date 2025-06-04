@@ -4,7 +4,7 @@ import logger from "../../utils/logger.js";
 
 const prisma = new PrismaClient();
 
-async function SignUp(email: string, password: string) {
+async function SignUp(email: string, password: string, firstName: string, lastName: string, middleName?: string) {
     try {
         const existingUser = await prisma.user.findUnique({
             where: { email }
@@ -19,7 +19,10 @@ async function SignUp(email: string, password: string) {
         await prisma.user.create({
             data: {
                 email,
-                password: hashedPassword
+                password: hashedPassword,
+                firstName,
+                lastName,
+                middleName: middleName || null
             }
         });
         
