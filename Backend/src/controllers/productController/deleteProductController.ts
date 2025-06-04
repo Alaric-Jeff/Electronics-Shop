@@ -18,6 +18,7 @@ const deleteProductController = async (req: Request, res: Response) => {
             success: true,
             message: "Products deleted successfully"
         })
+        
     }catch(err: unknown){
         if(err instanceof Error) {
             logger.error("Error in deleteProductController:", err.message);
