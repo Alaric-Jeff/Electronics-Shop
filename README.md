@@ -52,7 +52,7 @@
 - `winston` — logging  
 - `dotenv` — environment variables
 - `stripe` — online payment sandbox
-- `JsonWebtoken` - token session authentication paired with cookies
+- `JsonWebtoken` — token session authentication paired with cookies
 
 ---
 
