@@ -13,7 +13,7 @@ interface CreatePaymentIntentParams {
 
 async function createPaymentIntent({
     amount,
-    currency = 'usd',
+    currency = 'php',
     paymentMethodTypes = ['card'],
     metadata = {}
 }: CreatePaymentIntentParams) {
