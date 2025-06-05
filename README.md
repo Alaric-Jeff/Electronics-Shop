@@ -50,7 +50,9 @@
 - `multer` — file upload handling  
 - `nodemailer` — email notifications  
 - `winston` — logging  
-- `dotenv` — environment variables  
+- `dotenv` — environment variables
+- `stripe` — online payment sandbox
+- `JsonWebtoken` - token session authentication paired with cookies
 
 ---
 
