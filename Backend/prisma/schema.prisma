@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -33,7 +32,6 @@ enum ProductCategories {
   powerSources
   displayAndOutputDevices
 }
-
 
 model User {
   userId     Int          @id @default(autoincrement())

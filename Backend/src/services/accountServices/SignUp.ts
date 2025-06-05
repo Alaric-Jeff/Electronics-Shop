@@ -2,7 +2,10 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import logger from "../../utils/logger.js";
 
-const prisma = new PrismaClient();
+// Create a single PrismaClient instance
+const prisma = new PrismaClient({
+    log: ['query', 'info', 'warn', 'error'],
+});
 
 async function SignUp(email: string, password: string, firstName: string, lastName: string, middleName?: string) {
     try {
