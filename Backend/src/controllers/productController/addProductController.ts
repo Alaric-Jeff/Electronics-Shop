@@ -9,9 +9,10 @@ const addProductController = async (req: Request, res: Response) => {
         productCategory,
         productDescription,
         productStock,
-        productPrice,
-        productImage,
+        productPrice
     } = req.body;
+
+    const productImage = req.file?.filename || 'default-no-image.png';
 
     if (!productName || !productCategory || !productStock || !productPrice) {
         logger.error("Missing required fields in request body");
@@ -28,6 +29,7 @@ const addProductController = async (req: Request, res: Response) => {
             success: true,
             message: "Product added successfully"
         });
+
     } catch (err: unknown) {
         const statusCode = err instanceof Error && err.message === "Product with this name already exists" ? 409 : 500;
 

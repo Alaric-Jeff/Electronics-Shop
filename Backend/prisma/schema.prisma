@@ -64,7 +64,7 @@ model Product {
   productDescription String           @default("N/A")
   productStock     Int                @default(0)
   productPrice     Float              @default(0.00)
-  productImage String? 
+  productImage String? @default("default-no-image.png")
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
 }
