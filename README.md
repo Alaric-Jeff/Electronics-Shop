@@ -27,7 +27,7 @@
 - 🔐 User authentication & authorization  
 - 💳 Secure payments via **Stripe**  
 - 📁 File uploads for product images  
-- 🔒 Security best practices (helmet, rate limiting)  
+- 🔒 Security best practices (helmet, rate limiting, CORS)  
 - 📊 Structured business logic separated from controllers  
 
 ---
