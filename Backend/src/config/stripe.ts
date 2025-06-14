@@ -7,10 +7,9 @@ if (!process.env.STRIPE_SECRET_KEY) {
     throw new Error('STRIPE_SECRET_KEY is not defined in environment variables');
 }
 
-// Initialize Stripe with the latest stable API version
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: '2025-05-28.basil', // Using the version from your installed package
-    typescript: true, // Enable TypeScript support
+    apiVersion: '2025-05-28.basil',
+    typescript: true, 
 });
 
 export default stripe; 

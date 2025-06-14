@@ -11,12 +11,7 @@ async function getCategorizedProducts(category: string) {
 
         return products;
     }catch(err: unknown){
-        if (err instanceof Error) {
-            console.error("Error in getCategorizedProducts:", err.message);
-        } else {
-            console.error("An unknown error occurred in getCategorizedProducts");
-        }
-        return new Error("Error in getting categorized products");
+       throw err;
     }
 };
 

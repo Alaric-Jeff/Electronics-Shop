@@ -4,14 +4,13 @@ import paymentRoutes from './paymentRoutes.js'
 import accountRoutes from './accountRoutes.js';
 
 async function initRoute(app: any) {    
-    app.use(apiLimiter);
-    //mounting 
-    app.use('/auth/login', authLimiter);
-    app.use('/account/update-password', passwordResetLimiter);
-    
-    app.use('/auth', auth);
-    app.use('/payments', paymentRoutes);
+    app.use(apiLimiter); 
 
+    app.use('/auth', authLimiter, auth);
+    app.use('/account/update-password', passwordResetLimiter);
+
+
+    app.use('/payments', paymentRoutes);
     app.use('/account', accountRoutes);
 }   
 
