@@ -29,12 +29,7 @@ async function addProduct(productName: string, productDescription: string, produ
         return;
         
     }catch(err: unknown){
-        if(err instanceof Error) {
-            logger.error("Error in addProduct:", err.message);
-        }else{
-            logger.error("Unknown error in addProduct:", String(err));
-        }
-        throw new Error(String(err));
+        throw err;
     }
 }
 
