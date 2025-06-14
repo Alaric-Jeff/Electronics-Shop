@@ -25,12 +25,7 @@ async function deleteProducts(ids: number[]) {
     logger.info("Products deleted successfully", { deletedCount: count, ids });
     return { deletedCount: count };
   } catch (err: unknown) {
-    if (err instanceof Error) {
-      logger.error("Error in deleteProducts:", err.message);
-    } else {
-      logger.error("Unknown error in deleteProducts:", String(err));
-    }
-    return new Error("Error in deleting products service");
+    throw err;
   }
 }
 
