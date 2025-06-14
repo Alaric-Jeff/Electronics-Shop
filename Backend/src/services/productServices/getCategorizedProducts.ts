@@ -3,13 +3,12 @@ const prisma = new PrismaClient();
 
 async function getCategorizedProducts(category: string) {
     try{
-        const products = await prisma.product.findMany({
+        return await prisma.product.findMany({
             where: {
                 productCategory: category
             }
         })
 
-        return products;
     }catch(err: unknown){
        throw err;
     }
