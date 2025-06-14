@@ -5,8 +5,9 @@ const prisma = new PrismaClient();
 
 async function getProducts() {
     try {
-        const products = await prisma.product.findMany();
-        return products;
+
+        return await prisma.product.findMany();
+        
     } catch (err: unknown) {
         if (err instanceof Error) {
             logger.error("Error in getProducts:", err.message);
