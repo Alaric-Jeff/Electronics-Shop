@@ -8,4 +8,4 @@ router
   .delete("/delete-account", DeleteAccountController as unknown as RequestHandler)
   .put("/update-password", UpdatePassword as unknown as RequestHandler);
 
-  export default router;
+export default router;
