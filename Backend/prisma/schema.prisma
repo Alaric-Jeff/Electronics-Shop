@@ -38,7 +38,7 @@ model User {
   firstName  String
   lastName   String
   middleName String
-  email      String
+  email      String  @unique
   password   String
   profile    UserProfile?
 }
@@ -64,8 +64,8 @@ model Product {
   productPrice     Float              @default(0.00)
   productImage String? @default("default-no-image.png")
   productDiscounted Boolean? @default(false)
-  productDiscountedPercentage Double? @default(0.00)
-  productDiscountedAmount Double? @default(0.00)
+  productDiscountedPercentage Float? @default(0.00)
+  productDiscountedAmount Float? @default(0.00)
   createdAt        DateTime           @default(now())
   updatedAt        DateTime           @updatedAt
 }

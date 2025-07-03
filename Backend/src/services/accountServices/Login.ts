@@ -8,11 +8,13 @@ const prisma = new PrismaClient();
 async function Login(email: string, password: string){
 
     try{
+
         const user = await prisma.user.findUnique({
             where: {
-                email: email
+                email
             }
         })
+
 
         if(!user){
             logger.error("User not found:", email);
@@ -26,7 +28,7 @@ async function Login(email: string, password: string){
             throw new Error("Invalid password");
         }
 
-        return;
+        return user;
 
     }catch(error: any){
         logger.error("Login error:", error);

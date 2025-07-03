@@ -6,20 +6,20 @@ const prisma = new PrismaClient();
 
 async function UpdatePassword(userId: number, newPassword: string){
     try{
-        const user = await prisma.user.findUnique({
+        const userToUpdate = await prisma.user.findUnique({
             where: {
-                userId: userId
+                userId
             }
         })
 
-        if(!user){
+        if(!userToUpdate){
             logger.error("User not found:", userId);
             throw new Error("User not found");
         }
 
-        await user.update({
+        await prisma.user.update({
             where: {
-                userId: userId
+                userId
             },
             data: {
                 password: await bcrypt.hash(newPassword, 10)

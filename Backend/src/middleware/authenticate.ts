@@ -37,6 +37,7 @@ export const authenticateCookie = (req: Request, res: Response, next: NextFuncti
 };
 
 export const generateToken = (payload: any) => {
+    logger.info('Generating JWT token for payload:', payload);
     return jwt.sign(payload, process.env.JWT_SECRET as string, {
         expiresIn: "5h"
     });

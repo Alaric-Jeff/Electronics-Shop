@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function getDiscountedProduct(){
     try{
-        return await prisma.product.findAll({
+        return await prisma.product.findMany({
             where: {
                 productDiscounted: true
             }

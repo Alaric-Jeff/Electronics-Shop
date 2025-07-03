@@ -1,14 +1,22 @@
-import stripe from '../../config/stripe.js';
-import logger from '../../utils/logger.js';
+import stripe from '../Backend/src/config/stripe.js';
+import logger from '../Backend/src/utils/logger.js';
 
 interface CreatePaymentIntentParams {
     amount: number;
     currency: string;
     paymentMethodTypes: string[];
+    paymentMethodId: string;
+    customerId?: string;
     metadata?: {
-        orderId?: string;
         userId?: string;
     };
+}
+
+enum supportCurrencies {
+    PHP = 1,
+    USD = 50,
+    EUR = 60,
+    GBP = 70
 }
 
 async function createPaymentIntent({

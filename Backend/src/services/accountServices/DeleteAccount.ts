@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 async function DeleteAccount(id: number) {
     try{
         const user = await prisma.user.findUnique({
-            where: { id }
+            where: { userId: id }
         });
 
         if (!user) {
@@ -15,7 +15,7 @@ async function DeleteAccount(id: number) {
         }
 
         await prisma.user.delete({
-            where: { id }
+            where: { userId: id }
         });
 
         logger.info("User deleted successfully:", id);

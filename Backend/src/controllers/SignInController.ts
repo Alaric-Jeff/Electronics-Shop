@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import Login from "../services/accountServices/Login.js";
 import logger from "../utils/logger.js";
+import { generateToken } from "../middleware/authenticate.js";
 
 const LoginController = async (req: Request, res: Response) => {
     const { email, password } = req.body;
@@ -14,8 +15,24 @@ const LoginController = async (req: Request, res: Response) => {
     }
 
     try {
-        await Login(email, password);
+        const user = await Login(email, password);
+
+        if (!user) {
+            logger.error("User not found", { email });
+            return res.status(404).json({
+                success: false,
+                message: "User not found",
+            });
+        }
+
         logger.info("User logged in successfully", { email });
+
+        const payload: any = {
+            userId: user.userId,
+            email: user.email
+        }
+
+        await generateToken(payload);
 
         return res.status(200).json({
             success: true,

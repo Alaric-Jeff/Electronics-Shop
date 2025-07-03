@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-async function getCategorizedProducts(category: string) {
+async function getCategorizedProducts(category: any) {
     try{
         return await prisma.product.findMany({
             where: {

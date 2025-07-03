@@ -7,7 +7,7 @@ const prisma = new PrismaClient({
     log: ['query', 'info', 'warn', 'error'],
 });
 
-async function SignUp(email: string, password: string, firstName: string, lastName: string, middleName?: string) {
+async function SignUp(email: string, password: string, firstName: string, lastName: string, middleName: string) {
     try {
         const existingUser = await prisma.user.findUnique({
             where: { email }
@@ -25,7 +25,7 @@ async function SignUp(email: string, password: string, firstName: string, lastNa
                 password: hashedPassword,
                 firstName,
                 lastName,
-                middleName: middleName || null
+                middleName: middleName 
             }
         });
         

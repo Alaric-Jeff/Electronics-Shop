@@ -1,5 +1,5 @@
-import stripe from '../../config/stripe.js';
-import logger from '../../utils/logger.js';
+import stripe from '../Backend/src/config/stripe.js';
+import logger from '../Backend/src/utils/logger.js';
 
 interface ProcessPaymentParams {
     paymentIntentId: string;
