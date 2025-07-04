@@ -12,6 +12,13 @@ async function Login(email: string, password: string){
         const user = await prisma.user.findUnique({
             where: {
                 email
+            }, select: {
+                userId: true,
+                email: true,
+                firstName: true,
+                lastName: true,
+                middleName: true,
+                password: true
             }
         })
 
@@ -27,7 +34,7 @@ async function Login(email: string, password: string){
             logger.error("Invalid password for user:", email);
             throw new Error("Invalid password");
         }
-
+        logger.info(`user found: ${user.email}`); // it is found by why is userId and email undefined? even here the email is undefined
         return user;
 
     }catch(error: any){

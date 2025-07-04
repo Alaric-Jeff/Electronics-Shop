@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
 import logger from '../utils/logger.js';
 import dotenv from 'dotenv';
+import { log } from 'console';
 dotenv.config();
 
 declare global {
@@ -36,8 +37,13 @@ export const authenticateCookie = (req: Request, res: Response, next: NextFuncti
     }
 };
 
-export const generateToken = (payload: any) => {
-    logger.info('Generating JWT token for payload:', payload);
+export const generateToken = (payload: {userId: number, email: string}) => {
+
+    if(!payload || !payload.userId || !payload.email){
+        logger.error('Payload is required for token generation');
+    }
+
+    logger.info('Generating JWT token for payload userId:', JSON.stringify(payload.userId));
     return jwt.sign(payload, process.env.JWT_SECRET as string, {
         expiresIn: "5h"
     });

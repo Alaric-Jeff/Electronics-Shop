@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import Login from "../services/accountServices/Login.js";
 import logger from "../utils/logger.js";
 import { generateToken } from "../middleware/authenticate.js";
+import { log } from "console";
 
 const LoginController = async (req: Request, res: Response) => {
     const { email, password } = req.body;
@@ -25,22 +26,23 @@ const LoginController = async (req: Request, res: Response) => {
             });
         }
 
-        logger.info("User logged in successfully", { email });
+        logger.info(`User ${user.firstName} logged in successfully`); 
 
-        const payload: any = {
+        const payload: {userId: number, email: string} = {
             userId: user.userId,
-            email: user.email
-        }
+            email: user.email,
+        } 
 
-        await generateToken(payload);
-
+        const token  = await generateToken(payload);
         return res.status(200).json({
             success: true,
             message: "User logged in successfully",
+            token: token,
         });
+        
     } catch (err: unknown) {
         const error = err as Error;
-        logger.error("Login error", { error: error.message });
+        logger.error(`Login error: ${error.message}`, { email });
 
         let statusCode = 500;
         let errMessage = "Internal server error";

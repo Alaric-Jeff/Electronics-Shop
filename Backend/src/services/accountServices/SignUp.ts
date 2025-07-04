@@ -25,7 +25,7 @@ async function SignUp(email: string, password: string, firstName: string, lastNa
                 password: hashedPassword,
                 firstName,
                 lastName,
-                middleName: middleName 
+                middleName
             }
         });
         
